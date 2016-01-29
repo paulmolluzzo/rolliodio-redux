@@ -2,7 +2,7 @@ Meteor.publish('games', function(){
   return Games.find();
 });
 
-Meteor.publish('game/dice', function(currentGame){
+Meteor.publish('dice', function(currentGame){
   return Dice.find({game: currentGame});
 });
 
@@ -25,7 +25,6 @@ Games.allow({
     // can't delete
     return false;
   },
-  fetch: ['owner']
 });
 
 Dice.allow({
@@ -50,5 +49,4 @@ Dice.allow({
     // return true for everyone
     return true
   },
-  fetch: ['owner']
 });
