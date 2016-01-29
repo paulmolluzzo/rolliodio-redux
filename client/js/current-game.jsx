@@ -47,7 +47,7 @@ CurrentGame = React.createClass({
   render() {
     return (
       <div>
-        {this.data.game ? this.gameLayout() : <p>Loading...</p>}
+        {this.data.game ? this.gameLayout() : <Loading />}
       </div>
     );
   }
