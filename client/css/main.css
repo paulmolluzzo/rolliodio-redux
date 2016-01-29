@@ -1,3 +1,25 @@
+/* #Reset Inspired by E. Meyers */
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block;}
+body{line-height:1;}
+ol,ul{list-style:none;}
+blockquote,q{quotes:none;}
+blockquote:before,blockquote:after,
+q:before,q:after{content:'';content:none;}
+table{border-collapse:collapse;border-spacing:0;}
+/*Clearfix*/
+.container:after{content:"\0020";display:block;height:0;clear:both;visibility:hidden;}
+.clearfix:before,
+.clearfix:after,
+.row:before,
+.row:after{content:'\0020';display:block;overflow:hidden;visibility:hidden;width:0;height:0;}
+.row:after,
+.clearfix:after{clear:both;}
+.row,
+.clearfix{zoom:1;}
+.clear{clear:both;display:block;overflow:hidden;visibility:hidden;width:0;height:0;}
+
+/* custom "CSS" */
 html {
     height:100%;
 }
@@ -16,10 +38,10 @@ body {
     user-select: none;
 }
 a {
-    color: #fff
+    color: #fff;
 }
 h2 {
-    font-size: 175%
+    font-size: 175%;
 }
 input[type='submit'],input[type='button']{
     -webkit-appearance: none;
@@ -56,14 +78,14 @@ input,input[type="password"],input[type="search"],isindex {
 }
 *:focus {
     outline-color: #fff;
-    outline-width: 3px
+    outline-width: 3px;
 }
 .page-wrap {
     min-height:100%;
 }
 
 .error {
-    color: #f00
+    color: #f00;
 }
 header a h1 {
     font-family: 'UnifrakturMaguntia',cursive;
@@ -129,7 +151,7 @@ input.enter-game {
 .game-header {
     padding-top: 20px;
     position: relative;
-    width: 100%
+    width: 100%;
 }
 .game-name {
     margin: 0 auto;
@@ -172,7 +194,7 @@ input.enter-game {
     height: 60px;
     line-height: 60px;
     padding: 0 0 0 10px;
-    width: 30%
+    width: 30%;
 }
 .game-actions {
     width: 100%;
@@ -185,12 +207,12 @@ input.enter-game {
     line-height: 60px;
     text-align: center;
     text-decoration: none;
-    width: 25%
+    width: 25%;
 }
 input.roll-all {
     background-color: #89c46a;
     float: right;
-    width: 25%
+    width: 25%;
 }
 .single-die {
     background: -moz-linear-gradient(left,#f73134 0%,#f73134 50%,#89c46a 50%,#89c46a 100%);/* FF3.6+ */
@@ -206,7 +228,7 @@ input.roll-all {
     width: auto;
 }
 .single-die:nth-child(2) {
-    margin-top: 0px
+    margin-top: 0px;
 }
 .single-die:last-child {
     border-bottom: 3px solid #fff;
@@ -215,22 +237,22 @@ input.roll-all {
     float: left;
 }
 .roll {
-    float: right
+    float: right;
 }
 .delete-roll {
     display: block;
     height: 100%;
     margin-top: -64px;
-    width: 100%
+    width: 100%;
 }
-div.delete-roll input.delete-die,div.delete-roll input.roll {
+.delete-roll input.delete-die,.delete-roll input.roll {
     background-color: rgba(255,255,255,0);
     line-height: 60px;
     text-align: left;
     width: 40%;
     padding: 0px;
 }
-div.delete-roll input.roll {
+.delete-roll input.roll {
     text-align: right;
 }
 .die-wrap {
@@ -404,42 +426,42 @@ footer {
     height: 15px;
     width: auto;
 }
-@media screen and (max-width:625px) {body {
-    font-size: 14px
-}
-h2 {
-    font-size: 175%
-}
-header a h1 {
-    font-size: 200%;
-    text-align: center
-}
-header a h1 span {
-    font-size: 225%;
-}
-.game-header {
-    padding-top: 10px;
-}
-.game-name {
-    width: 100%
-}
-.currentgame h3 {
-    width: 65%;
-}
-#update-game-name {
-    width: 35%;
-}
-.exit-game,input.roll-all {
-    width: 40%
-}
-.sides {
-    width: 30%
-}
-.result {
-    width: 20%;
-}
-footer {
-    margin-top:0px;
-}
-
+@media screen and (max-width:625px) {
+  body {
+      font-size: 14px;
+  }
+  h2 {
+      font-size: 175%;
+  }
+  header a h1 {
+      font-size: 200%;
+      text-align: center;
+  }
+  header a h1 span {
+      font-size: 225%;
+  }
+  .game-header {
+      padding-top: 10px;
+  }
+  .game-name {
+      width: 100%;
+  }
+  .currentgame h3 {
+      width: 65%;
+  }
+  #update-game-name {
+      width: 35%;
+  }
+  .exit-game,input.roll-all {
+      width: 40%;
+  }
+  .sides {
+      width: 30%;
+  }
+  .result {
+      width: 20%;
+  }
+  footer {
+      margin-top:0px;
+  }
 }
