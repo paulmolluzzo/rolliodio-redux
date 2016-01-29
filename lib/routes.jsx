@@ -1,3 +1,7 @@
+ReactLayout.setRootProps({
+  className: "page-wrap clearfix"
+});
+
 FlowRouter.route('/', {
   action() {
     ReactLayout.render(Main, {content: <Home />});

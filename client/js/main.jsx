@@ -1,7 +1,7 @@
 Main = React.createClass({
   render() {
     return (
-      <div className="page-wrap clearfix">
+      <div>
         <main>{this.props.content}</main>
       </div>
     );
