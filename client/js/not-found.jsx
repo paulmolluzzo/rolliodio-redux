@@ -9,5 +9,3 @@ NotFound = React.createClass({
     );
   }
 });
-
-
