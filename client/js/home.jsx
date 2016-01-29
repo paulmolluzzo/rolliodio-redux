@@ -9,7 +9,7 @@ Home = React.createClass({
         <p className="intro">Using <span>RollioDio</span> you can create and share virtual dice with friends. Dice rolled on one player's device automatically update every other players' screen.</p>
         <NewGame />
         <EnterGame />
-    </div>
+      </div>
     );
   }
 });
