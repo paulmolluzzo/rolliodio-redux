@@ -1,5 +1,6 @@
 CurrentGame = React.createClass({
 
+  // getting data from the collections
   mixins: [ReactMeteorData],
 
   getMeteorData() {
@@ -17,6 +18,7 @@ CurrentGame = React.createClass({
     return data;
   },
 
+  // layout for the entire game, each die is rendered and the component for adding a die is also rendered
   gameLayout() {
     return (
       <div>
@@ -28,7 +30,7 @@ CurrentGame = React.createClass({
             </div>
             <div className="game-actions clearfix">
               <a className="exit-game" href="/">Exit</a>
-              <input type="button" className="roll-all" value="Roll All" />
+              <input type="button" className="roll-all" value="Roll All" onClick={this.rollAll} />
             </div>
           </div>
           {this.renderDice()}
@@ -38,10 +40,16 @@ CurrentGame = React.createClass({
     );
   },
 
+  // rendering all the dice for the game
   renderDice() {
     return this.data.dice.map((die) => {
       return <SingleDie key={die._id} die={die} />;
     });
+  },
+
+  // rolling all the dice in the game
+  rollAll() {
+    Meteor.call('rollAllDice', this.data.game.slug);
   },
 
   render() {
