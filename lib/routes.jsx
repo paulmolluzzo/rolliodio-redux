@@ -9,6 +9,7 @@ FlowRouter.route('/', {
 });
 
 FlowRouter.route('/:slug', {
+  name: 'currentgame',
   action(params) {
     ReactLayout.render(Main, {content: <CurrentGame {...params} />});
   }
