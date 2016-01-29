@@ -25,6 +25,10 @@ Meteor.methods({
       let e = Math.floor(Math.random()*die.sides + 1);
       Dice.update({_id:die._id}, {$set:{result:e, rolled:dateTime}});
     });
+  },
 
+  // delete a single die :(
+  deleteDie(die) {
+    Dice.remove(die._id);
   }
 })

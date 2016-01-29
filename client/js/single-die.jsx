@@ -8,6 +8,10 @@ SingleDie = React.createClass({
     Meteor.call('rollDie', this.props.die);
   },
 
+  deleteDie() {
+    Meteor.call('deleteDie', this.props.die);
+  },
+
   render() {
     return (
       <div className="single-die clearfix">
@@ -21,7 +25,7 @@ SingleDie = React.createClass({
           <p className="roll-time">As of: {this.props.die.rolled}</p>
         </div>
         <div className="delete-roll">
-          <input type="button" className="delete-die" value="Delete»»" />
+          <input type="button" className="delete-die" value="Delete»»" onClick={this.deleteDie} />
           <input type="button" className="roll" value="««Roll It" onClick={this.rollDie}/>
         </div>
       </div>
