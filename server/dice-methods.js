@@ -27,6 +27,10 @@ Meteor.methods({
     });
   },
 
+  updateDie(die, newValue) {
+    Dice.update({_id:die._id}, {$set:{sides:newValue, type:"d"+newValue}});
+  },
+
   // delete a single die :(
   deleteDie(die) {
     Dice.remove(die._id);
