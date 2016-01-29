@@ -15,7 +15,9 @@ SingleDie = React.createClass({
   updateSides(event) {
     let newValue = event.target.value;
     if (!isNaN(newValue) && (newValue > 1)) {
-        Meteor.call('updateDie', this.props.die, newValue);
+        Meteor.call('updateDie', this.props.die, newValue, (e, r) => {
+          Session.set('alert', {'type': 'error', 'message': e.reason});
+        });
         event.target.value = '';
         // _gaq.push(['_trackEvent', 'dice', 'update_sides', newValue]);
     } else {

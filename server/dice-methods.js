@@ -28,7 +28,11 @@ Meteor.methods({
   },
 
   updateDie(die, newValue) {
-    Dice.update({_id:die._id}, {$set:{sides:newValue, type:"d"+newValue}});
+    try {
+      Dice.update({_id:die._id}, {$set:{sides:newValue, type:"d"+newValue}});
+    } catch (e) {
+      throw new Meteor.Error('bad-die-update', 'Something went wrong!');
+    }
   },
 
   // delete a single die :(
