@@ -5,18 +5,25 @@ SingleDie = React.createClass({
   },
 
   rollDie() {
-    Meteor.call('rollDie', this.props.die);
+    Meteor.call('rollDie', this.props.die, (e, r) => {
+      if (e)
+        Session.set('alert', {'type': 'error', 'message': e.reason});
+    });
   },
 
   deleteDie() {
-    Meteor.call('deleteDie', this.props.die);
+    Meteor.call('deleteDie', this.props.die, (e, r) => {
+      if (e)
+        Session.set('alert', {'type': 'error', 'message': e.reason});
+    });
   },
 
   updateSides(event) {
     let newValue = event.target.value;
     if (!isNaN(newValue) && (newValue > 1)) {
         Meteor.call('updateDie', this.props.die, newValue, (e, r) => {
-          Session.set('alert', {'type': 'error', 'message': e.reason});
+          if (e)
+            Session.set('alert', {'type': 'error', 'message': e.reason});
         });
         event.target.value = '';
         // _gaq.push(['_trackEvent', 'dice', 'update_sides', newValue]);

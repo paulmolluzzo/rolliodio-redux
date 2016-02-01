@@ -49,7 +49,10 @@ CurrentGame = React.createClass({
 
   // rolling all the dice in the game
   rollAll() {
-    Meteor.call('rollAllDice', this.data.game.slug);
+    Meteor.call('rollAllDice', this.data.game.slug, (e, r) => {
+      if (e)
+        Session.set('alert', {'type': 'error', 'message': e.reason});
+    });
   },
 
   render() {

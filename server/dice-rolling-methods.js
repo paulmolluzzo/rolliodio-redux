@@ -12,7 +12,10 @@ Meteor.methods({
                     + currentDate.getMinutes() + ":"
                     + currentDate.getSeconds();
     let e = Math.floor(Math.random()*die.sides + 1);
-    Dice.update({_id:die._id}, {$set:{result:e, rolled:dateTime}});
+    Dice.update({_id:die._id}, {$set:{result:e, rolled:dateTime}}, null, (e,r) => {
+      if (e)
+        isoErrors.error('bad-die-roll', 'Something went wrong!');
+    });
   },
 
   rollAllDice(gameSlug) {
@@ -27,7 +30,10 @@ Meteor.methods({
 
     allDice.map((die) => {
       let e = Math.floor(Math.random()*die.sides + 1);
-      Dice.update({_id:die._id}, {$set:{result:e, rolled:dateTime}});
+      Dice.update({_id:die._id}, {$set:{result:e, rolled:dateTime}}, null, (e,r) => {
+        if (e)
+          isoErrors.error('bad-all-die-roll', 'Something went wrong!');
+      });
     });
   }
 })
