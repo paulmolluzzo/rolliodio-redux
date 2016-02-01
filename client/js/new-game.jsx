@@ -7,15 +7,15 @@ NewGame = React.createClass({
     return {}
   },
 
-  validateName(name) {
+  validateSlug(slug) {
     Session.set('error', undefined);
 
-    if (name.length === 0) {
+    if (slug.length === 0) {
       Session.set('error', 'Name can\'t be blank');
       return false;
     }
 
-    if (Games.findOne({slug: name})) {
+    if (Games.findOne({slug})) {
       Session.set('error', 'Game already exists. Try again.');
       return false;
     }
@@ -23,28 +23,26 @@ NewGame = React.createClass({
     return true;
   },
 
-  validCreation(i, h, m, d) {
-    if (this.validateName(h)) {
-        Games.update({_id: i}, {$set:{slug:h}});
-        Session.set("current_game", h);
-        Dice.insert({type: "d6", sides: 6, game: h, date: d, result: "-", rolled: "never"});
-        FlowRouter.go('currentgame', {slug: h});
+  validCreation(_id, slug, modifiedId) {
+    if (this.validateSlug(slug)) {
+        Games.update({_id}, {$set:{slug}});
+        Session.set("_currentGame", _id);
+        Dice.insert({type: "d6", sides: 6, game: _id, result: "-", rolled: "never"});
+        FlowRouter.go('currentgame', {slug});
         // _gaq.push(['_trackEvent', 'games', 'new_game']);
     } else {
-        m = (Math.floor(Math.random()*9+1)) + i;
-        h = m.substring(0, 6);
-        this.validCreation(i, h, m);
+        modifiedId = (Math.floor(Math.random()*9+1)) + _id;
+        slug = modifiedId.substring(0, 6);
+        this.validCreation(_id, slug, modifiedId);
     }
   },
 
   createGame() {
     let currentdate = new Date().getTime();
-    let newId = Games.insert({date: currentdate});
-    let modifiedId = newId;
-    let newHash = modifiedId.substring(0, 6);
+    let gameID = Games.insert({date: currentdate});
+    let slug = gameID.substring(0, 6);
     Session.set("no_game", null);
-    this.validCreation(newId, newHash, modifiedId);
-
+    this.validCreation(gameID, slug, gameID);
   },
 
   render() {

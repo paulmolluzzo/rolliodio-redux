@@ -6,13 +6,24 @@ CurrentGame = React.createClass({
   getMeteorData() {
     let data = {};
 
-    Session.set('_currentGame', this.props.slug);
+    // Subscribe to all games
     let allGames = Meteor.subscribe('games');
-    let gameDice = Meteor.subscribe('dice', this.props.slug);
 
-    if (allGames.ready() && gameDice.ready()) {
+    // when the subscription is ready
+    if (allGames.ready()) {
+      // add the game for this slug to the data
       data.game = Games.findOne({slug: this.props.slug});
-      data.dice = Dice.find({game: this.props.slug}).fetch();
+
+      // set the session with the ID
+      Session.set('_currentGame', data.game._id);
+
+      // grab all the dice with that ID
+      let gameDice = Meteor.subscribe('dice', data.game._id);
+
+      // check for dice being available after the game is fetched from DB
+      // and add all those dice to the data
+      if (gameDice && gameDice.ready())
+        data.dice = Dice.find({game: data.game._id}).fetch();
     }
 
     return data;
@@ -33,7 +44,7 @@ CurrentGame = React.createClass({
               <input type="button" className="roll-all" value="Roll All" onClick={this.rollAll} />
             </div>
           </div>
-          {this.renderDice()}
+          {this.data.dice ? this.renderDice() : ''}
         </div>
         <NewDice />
       </div>
@@ -49,7 +60,7 @@ CurrentGame = React.createClass({
 
   // rolling all the dice in the game
   rollAll() {
-    Meteor.call('rollAllDice', this.data.game.slug, (e, r) => {
+    Meteor.call('rollAllDice', this.data.game._id, (e, r) => {
       if (e)
         Session.set('alert', {'type': 'error', 'message': e.reason});
     });

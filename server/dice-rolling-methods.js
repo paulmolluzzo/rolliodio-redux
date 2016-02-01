@@ -12,9 +12,9 @@ Meteor.methods({
     });
   },
 
-  rollAllDice(gameSlug) {
+  rollAllDice(gameID) {
     let dateTime = moment(new Date()).format('MM/DD/YYYY @ HH:mm:ss');
-    let allDice = Dice.find({game: gameSlug}).fetch();
+    let allDice = Dice.find({game: gameID}).fetch();
 
     allDice.map((die) => {
       let e = Math.floor(Math.random()*die.sides + 1);
