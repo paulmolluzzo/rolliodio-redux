@@ -4,13 +4,7 @@
 
 Meteor.methods({
   rollDie(die) {
-    let currentDate = new Date();
-    let dateTime = (currentDate.getMonth()+1) + "/"
-                    + (currentDate.getDate())  + "/"
-                    + currentDate.getFullYear() + " @ "
-                    + currentDate.getHours() + ":"
-                    + currentDate.getMinutes() + ":"
-                    + currentDate.getSeconds();
+    let dateTime = moment(new Date()).format('MM/DD/YYYY @ HH:mm:ss');
     let e = Math.floor(Math.random()*die.sides + 1);
     Dice.update({_id:die._id}, {$set:{result:e, rolled:dateTime}}, null, (e,r) => {
       if (e)
@@ -19,13 +13,7 @@ Meteor.methods({
   },
 
   rollAllDice(gameSlug) {
-    let currentDate = new Date();
-    let dateTime = (currentDate.getMonth()+1) + "/"
-                    + (currentDate.getDate())  + "/"
-                    + currentDate.getFullYear() + " @ "
-                    + currentDate.getHours() + ":"
-                    + currentDate.getMinutes() + ":"
-                    + currentDate.getSeconds();
+    let dateTime = moment(new Date()).format('MM/DD/YYYY @ HH:mm:ss');
     let allDice = Dice.find({game: gameSlug}).fetch();
 
     allDice.map((die) => {
