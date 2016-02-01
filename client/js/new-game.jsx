@@ -23,17 +23,27 @@ NewGame = React.createClass({
     return true;
   },
 
-  validCreation(_id, slug, modifiedId) {
-    if (this.validateSlug(slug)) {
-        Games.update({_id}, {$set:{slug}});
-        Session.set("_currentGame", _id);
-        Dice.insert({type: "d6", sides: 6, game: _id, result: "-", rolled: "never"});
-        FlowRouter.go('currentgame', {slug});
-        // _gaq.push(['_trackEvent', 'games', 'new_game']);
+  // take an ID and slug, if the slug is unique then update the Game
+  validCreation(_id, slug) {
+
+    // if there's a game with the slug
+    // change the slug and the recurse the function
+    if (Games.findOne({slug})) {
+      slug = ((Math.floor(Math.random()*9+1)) + _id).substring(0, 6);
+      this.validCreation(_id, slug);
     } else {
-        modifiedId = (Math.floor(Math.random()*9+1)) + _id;
-        slug = modifiedId.substring(0, 6);
-        this.validCreation(_id, slug, modifiedId);
+      // must be unique, update the game
+      Games.update({_id}, {$set:{slug}});
+
+      // set session for accessing the ID everywhere
+      Session.set("_currentGame", _id);
+
+      // create the first die
+      Dice.insert({type: "d6", sides: 6, game: _id, result: "-", rolled: "never"});
+
+      // go to the page
+      FlowRouter.go('currentgame', {slug});
+      // _gaq.push(['_trackEvent', 'games', 'new_game']);
     }
   },
 
@@ -41,8 +51,7 @@ NewGame = React.createClass({
     let currentdate = new Date().getTime();
     let gameID = Games.insert({date: currentdate});
     let slug = gameID.substring(0, 6);
-    Session.set("no_game", null);
-    this.validCreation(gameID, slug, gameID);
+    this.validCreation(gameID, slug);
   },
 
   render() {
