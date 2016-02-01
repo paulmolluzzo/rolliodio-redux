@@ -1,3 +1,7 @@
+// These are methods for dice that probably won't equal result on the client and the server
+//
+// All "random" events should be handled with these methods
+
 Meteor.methods({
   rollDie(die) {
     let currentDate = new Date();
@@ -25,18 +29,5 @@ Meteor.methods({
       let e = Math.floor(Math.random()*die.sides + 1);
       Dice.update({_id:die._id}, {$set:{result:e, rolled:dateTime}});
     });
-  },
-
-  updateDie(die, newValue) {
-    try {
-      Dice.update({_id:die._id}, {$set:{sides:newValue, type:"d"+newValue}});
-    } catch (e) {
-      throw new Meteor.Error('bad-die-update', 'Something went wrong!');
-    }
-  },
-
-  // delete a single die :(
-  deleteDie(die) {
-    Dice.remove(die._id);
   }
 })
