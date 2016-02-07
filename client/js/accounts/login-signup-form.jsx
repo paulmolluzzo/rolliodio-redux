@@ -39,14 +39,29 @@ LoginSignupForm = React.createClass({
     );
   },
 
+  signupForm() {
+    return (
+      <form className="signup" onSubmit={this.handleSignup} >
+        <input name="username" onChange={this.collectData} />
+        <input type="password" name="password" onChange={this.collectData} />
+        <input type="submit" />
+      </form>
+    )
+  },
+
+  signoutAction() {
+    let signoutLink = FlowRouter.path('logout');
+    return (
+      <div className="signout">
+        <a href={signoutLink}>Log Out</a>
+      </div>
+    )
+  },
+
   render() {
     return (
       <div className="login-signup-block">
-        <form className="signup" onSubmit={this.handleSignup} >
-          <input name="username" onChange={this.collectData} />
-          <input type="password" name="password" onChange={this.collectData} />
-          <input type="submit" />
-        </form>
+        {this.data.user || Meteor.loggingIn() ? this.signoutAction() : this.signupForm() }
       </div>
     );
   }

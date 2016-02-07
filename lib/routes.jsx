@@ -14,6 +14,16 @@ FlowRouter.route('/login', {
   }
 });
 
+FlowRouter.route('/logout', {
+  triggersEnter(context, redirect) {
+    Meteor.logout();
+    redirect('/');
+  },
+  action() {
+    ReactLayout.render(Main, {content: <Home />});
+  }
+});
+
 FlowRouter.route('/:slug', {
   name: 'currentgame',
   action(params) {
