@@ -8,6 +8,12 @@ FlowRouter.route('/', {
   }
 });
 
+FlowRouter.route('/login', {
+  action() {
+    ReactLayout.render(Main, {content: <LoginSignupForm />});
+  }
+});
+
 FlowRouter.route('/:slug', {
   name: 'currentgame',
   action(params) {
