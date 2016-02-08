@@ -37,6 +37,8 @@ LoginSignupForm = React.createClass({
     Accounts.createUser(
       this.state,
       (error) => {
+        this.state.username = '';
+        this.state.password = '';
         if (!error) {
           console.log('Signed Up');
         } else {
@@ -52,6 +54,8 @@ LoginSignupForm = React.createClass({
       this.state.username,
       this.state.password,
       (error) => {
+        this.state.username = '';
+        this.state.password = '';
         if (!error) {
           console.log('Logged In');
         } else {
@@ -105,7 +109,7 @@ LoginSignupForm = React.createClass({
   render() {
     return (
       <div className="login-signup-block">
-        {this.data.user || Meteor.loggingIn() ? this.signoutAction() : this.signupLoginForms() }
+        {this.data.user || Meteor.loggingIn() ? <Signout /> : this.signupLoginForms() }
       </div>
     );
   }
