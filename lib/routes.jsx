@@ -59,12 +59,6 @@ everyone.route('/logout', {
   }
 });
 
-everyone.notFound = {
-    action() {
-      ReactLayout.render(App, {content: <NotFound />});
-    }
-};
-
 // Secured Routes
 
 loggedInUsers.route('/dashboard', {
@@ -74,9 +68,17 @@ loggedInUsers.route('/dashboard', {
   }
 });
 
-loggedInUsers.route('/:slug', {
+loggedInUsers.route('/game/:slug', {
   name: 'currentgame',
   action(params) {
     ReactLayout.render(App, {content: <CurrentGame {...params} />});
   }
 });
+
+// Not Found
+
+FlowRouter.notFound = {
+    action() {
+      ReactLayout.render(App, {content: <NotFound />});
+    }
+};
