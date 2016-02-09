@@ -14,7 +14,8 @@ let loggedInUsers = FlowRouter.group({
     if (!Meteor.loggingIn() && !Meteor.user()) {
       let route = FlowRouter.current()
       if (route.route.name !== 'login') {
-        Session.set('redirectAfterLogin', route.path);
+        if (Meteor.isClient)
+          Session.set('redirectAfterLogin', route.path);
       }
       return FlowRouter.go('login')
     }
@@ -24,14 +25,14 @@ let loggedInUsers = FlowRouter.group({
 // Handling redirects for secured routes
 
 Accounts.onLogin(() => {
+  if (Meteor.isClient) {
     Meteor.logoutOtherClients();
 
     let redirect = Session.get('redirectAfterLogin');
 
-    Session.set ('loggedIn', true);
-
     if (redirect !== null && redirect !== '/login')
       return FlowRouter.go(redirect);
+  }
 });
 
 // Public Routes
