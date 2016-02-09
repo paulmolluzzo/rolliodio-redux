@@ -38,14 +38,14 @@ Accounts.onLogin(() => {
 
 everyone.route('/', {
   action() {
-    ReactLayout.render(Main, {content: <Home />});
+    ReactLayout.render(App, {content: <Home />});
   }
 });
 
 everyone.route('/login', {
   name: 'login',
   action() {
-    ReactLayout.render(Main, {content: <LoginSignupForm />});
+    ReactLayout.render(App, {content: <LoginSignupForm />});
   }
 });
 
@@ -55,13 +55,13 @@ everyone.route('/logout', {
     redirect('/');
   },
   action() {
-    ReactLayout.render(Main, {content: <Home />});
+    ReactLayout.render(App, {content: <Home />});
   }
 });
 
 everyone.notFound = {
     action() {
-      ReactLayout.render(Main, {content: <NotFound />});
+      ReactLayout.render(App, {content: <NotFound />});
     }
 };
 
@@ -70,13 +70,13 @@ everyone.notFound = {
 loggedInUsers.route('/dashboard', {
   name: 'dashboard',
   action(params) {
-    ReactLayout.render(Main, {content: <Dashboard />});
+    ReactLayout.render(App, {content: <Dashboard />});
   }
 });
 
 loggedInUsers.route('/:slug', {
   name: 'currentgame',
   action(params) {
-    ReactLayout.render(Main, {content: <CurrentGame {...params} />});
+    ReactLayout.render(App, {content: <CurrentGame {...params} />});
   }
 });
