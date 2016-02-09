@@ -1,5 +1,5 @@
-Meteor.publish('games', function(){
-  return Games.find();
+Meteor.publish('mygames', function(){
+  return Games.find({owner: this.userId});
 });
 
 Meteor.publish('currentgame', function(slug){

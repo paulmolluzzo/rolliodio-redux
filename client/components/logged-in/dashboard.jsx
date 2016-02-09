@@ -6,24 +6,24 @@ Dashboard = React.createClass({
     let data = {};
 
     // Subscribe to all games
-    let allGames = Meteor.subscribe('games');
+    let myGames = Meteor.subscribe('mygames');
 
     // when the subscription is ready
-    if (allGames.ready())
-      data.allGames = Games.find().fetch();
+    if (myGames.ready())
+      data.myGames = Games.find().fetch();
 
     return data;
   },
 
   enterGame(index) {
-    console.log(this.data.allGames[index]);
+    console.log(this.data.myGames[index]);
   },
 
   listGames() {
-    return this.data.allGames.map((game, index) => {
+    return this.data.myGames.map((game, index) => {
       return (
         <li>
-          <input type="button" className="generate" value={game.slug} onClick={this.enterGame.bind(this, index)} />
+          <a href={FlowRouter.path('currentgame', {slug: game.slug})} >{game.slug}</a>
         </li>
       )
     });
@@ -35,7 +35,7 @@ Dashboard = React.createClass({
         <LoginSignupForm />
         <NewGame />
         <ul>
-          {this.data.allGames ? this.listGames() : ''}
+          {this.data.myGames ? this.listGames() : ''}
         </ul>
       </div>
     );
