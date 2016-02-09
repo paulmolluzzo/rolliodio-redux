@@ -49,7 +49,7 @@ NewGame = React.createClass({
 
   createGame() {
     let currentdate = new Date().getTime();
-    let gameID = Games.insert({date: currentdate});
+    let gameID = Games.insert({owner: Meteor.userId(), date: currentdate});
     let slug = gameID.substring(0, 6);
     this.validCreation(gameID, slug);
   },

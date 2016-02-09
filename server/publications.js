@@ -2,6 +2,10 @@ Meteor.publish('games', function(){
   return Games.find();
 });
 
+Meteor.publish('currentgame', function(slug){
+  return Games.find({slug});
+});
+
 Meteor.publish('dice', function(currentGame){
   return Dice.find({game: currentGame});
 });
