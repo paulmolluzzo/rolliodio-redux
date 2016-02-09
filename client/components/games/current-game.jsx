@@ -40,7 +40,7 @@ CurrentGame = React.createClass({
               <input id="update-game-name" type="text" placeholder={this.data.game.slug} />
             </div>
             <div className="game-actions clearfix">
-              <a className="exit-game" href="/">Exit</a>
+              <a className="exit-game" href={FlowRouter.path('dashboard')}>Exit</a>
               <input type="button" className="roll-all" value="Roll All" onClick={this.rollAll} />
             </div>
           </div>
