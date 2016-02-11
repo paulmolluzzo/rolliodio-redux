@@ -7,8 +7,7 @@ Home = React.createClass({
         </header>
         <h2>Roll dice with friends!</h2>
         <p className="intro">Using <span>RollioDio</span> you can create and share virtual dice with friends. Dice rolled on one player's device automatically update every other players' screen.</p>
-        <NewGame />
-        <EnterGame />
+        { Meteor.user() ? '' : <LoginSignupForm /> }
       </div>
     );
   }
