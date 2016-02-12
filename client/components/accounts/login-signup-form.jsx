@@ -67,11 +67,11 @@ LoginSignupForm = React.createClass({
 
   signupForm() {
     return (
-      <form className="signup" onSubmit={this.handleSignup} >
+      <form className="signup row" onSubmit={this.handleSignup} >
         <h2>Sign Up</h2>
-        <input type="text" name="username" value={this.state.username} onChange={this.collectData} />
-        <input type="password" name="password" value={this.state.password} onChange={this.collectData} />
-        <input type="submit" />
+        <input className="twelve columns" placeholder="Username" type="text" name="username" value={this.state.username} onChange={this.collectData} />
+        <input className="twelve columns" placeholder="Password" type="password" name="password" value={this.state.password} onChange={this.collectData} />
+        <input className="twelve columns button-primary" type="submit" />
       </form>
     )
   },
@@ -80,16 +80,16 @@ LoginSignupForm = React.createClass({
     return (
       <form className="login" onSubmit={this.handleLogin} >
         <h2>Log In</h2>
-        <input type="text" name="username" value={this.state.username} onChange={this.collectData} />
-        <input type="password" name="password" value={this.state.password} onChange={this.collectData} />
-        <input type="submit" />
+        <input className="twelve columns" placeholder="Username" type="text" name="username" value={this.state.username} onChange={this.collectData} />
+        <input className="twelve columns" placeholder="Password" type="password" name="password" value={this.state.password} onChange={this.collectData} />
+        <input className="twelve columns button-primary" type="submit" />
       </form>
     )
   },
 
   signupLoginForms() {
     return (
-      <div className="forms">
+      <div className="forms twelve columns">
         <button name="signup" className="choose signup" onClick={this.toggleSignupLogin} >Signup</button>
         <button name="login" className="choose login" onClick={this.toggleSignupLogin} >Log In</button>
         {this.state.doSignup === 'signup' ? this.signupForm() : this.loginForm() }
@@ -108,7 +108,7 @@ LoginSignupForm = React.createClass({
 
   render() {
     return (
-      <div className="login-signup-block">
+      <div className="login-signup-block row">
         {this.data.user || Meteor.loggingIn() ? <Signout /> : this.signupLoginForms() }
       </div>
     );

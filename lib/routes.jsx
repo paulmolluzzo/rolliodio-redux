@@ -1,7 +1,7 @@
 // General Settings for ReactLayout
 
 ReactLayout.setRootProps({
-  className: "page-wrap clearfix"
+  className: "container u-cf"
 });
 
 // group permissions for specific routes
