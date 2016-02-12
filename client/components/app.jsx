@@ -1,4 +1,4 @@
-Main = React.createClass({
+App = React.createClass({
   render() {
     return (
       <div>

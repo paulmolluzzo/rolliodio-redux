@@ -1,5 +1,9 @@
-Meteor.publish('games', function(){
-  return Games.find();
+Meteor.publish('mygames', function(){
+  return Games.find({owner: this.userId});
+});
+
+Meteor.publish('currentgame', function(slug){
+  return Games.find({slug});
 });
 
 Meteor.publish('dice', function(currentGame){
@@ -9,21 +13,15 @@ Meteor.publish('dice', function(currentGame){
 Games.allow({
   insert: function (userId, doc) {
     // the user must be logged in, and the document must be owned by the user
-    // return (userId && doc.owner === userId);
-
-    // return true for everyone
-    return true
+    return (userId && doc.owner === userId);
   },
   update: function (userId, doc, fields, modifier) {
-    // can only change your own documents
-    // return doc.owner === userId;
-
-    // return true for everyone
-    return true
+    // the user must be logged in, and can only change your own games
+    return (userId && doc.owner === userId);
   },
   remove: function (userId, doc) {
-    // can't delete
-    return false;
+    // the user must be logged in, and can only delete your own games
+    return (userId && doc.owner === userId);
   },
 });
 
@@ -44,7 +42,7 @@ Dice.allow({
   },
   remove: function (userId, doc) {
     // can only remove your own documents
-    return doc.owner === userId;
+    // return doc.owner === userId;
 
     // return true for everyone
     return true

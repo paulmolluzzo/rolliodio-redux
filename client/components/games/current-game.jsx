@@ -7,12 +7,12 @@ CurrentGame = React.createClass({
     let data = {};
 
     // Subscribe to all games
-    let allGames = Meteor.subscribe('games');
+    let currentgame = Meteor.subscribe('currentgame', this.props.slug);
 
     // when the subscription is ready
-    if (allGames.ready()) {
-      // add the game for this slug to the data
-      data.game = Games.findOne({slug: this.props.slug});
+    if (currentgame.ready()) {
+      // add the game to the data
+      data.game = Games.findOne();
 
       // set the session with the ID
       Session.set('_currentGame', data.game._id);
@@ -40,7 +40,7 @@ CurrentGame = React.createClass({
               <input id="update-game-name" type="text" placeholder={this.data.game.slug} />
             </div>
             <div className="game-actions clearfix">
-              <a className="exit-game" href="/">Exit</a>
+              <a className="exit-game" href={FlowRouter.path('dashboard')}>Exit</a>
               <input type="button" className="roll-all" value="Roll All" onClick={this.rollAll} />
             </div>
           </div>
