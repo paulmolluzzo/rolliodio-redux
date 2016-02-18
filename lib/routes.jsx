@@ -1,7 +1,7 @@
 // General Settings for ReactLayout
 
 ReactLayout.setRootProps({
-  className: "container u-cf"
+  className: "container"
 });
 
 // group permissions for specific routes

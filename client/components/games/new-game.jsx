@@ -57,7 +57,7 @@ NewGame = React.createClass({
   render() {
     return (
       <div className="row new-game">
-        <input type="button" className="generate button-primary twelve columns" value="Start a New Game!" onClick={this.createGame} />
+        <input type="button" className="generate btn btn-primary col-sm-12" value="Start a New Game!" onClick={this.createGame} />
       </div>
     )
   }

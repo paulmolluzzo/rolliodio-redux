@@ -12,7 +12,7 @@ NewDice = React.createClass({
   render(){
     return (
       <div className="newdie">
-        <input type="button" className="generate-die" value="Add another Die" onClick={this.createDice} />
+        <input type="button" className="generate-die btn btn-block btn-primary" value="Add another Die" onClick={this.createDice} />
       </div>
     )
   }

@@ -67,11 +67,17 @@ LoginSignupForm = React.createClass({
 
   signupForm() {
     return (
-      <form className="signup row" onSubmit={this.handleSignup} >
+      <form className="signup" onSubmit={this.handleSignup} >
         <h2>Sign Up</h2>
-        <input className="twelve columns" placeholder="Username" type="text" name="username" value={this.state.username} onChange={this.collectData} />
-        <input className="twelve columns" placeholder="Password" type="password" name="password" value={this.state.password} onChange={this.collectData} />
-        <input className="twelve columns button-primary" type="submit" />
+        <fieldset className="form-group">
+          <label for="username">Username</label>
+          <input className="form-control" placeholder="Username" type="text" name="username" value={this.state.username} onChange={this.collectData} />
+        </fieldset>
+        <fieldset className="form-group">
+          <label for="password">Password</label>
+          <input className="form-control" placeholder="Password" type="password" name="password" value={this.state.password} onChange={this.collectData} />
+        </fieldset>
+        <input className="btn btn-primary btn-block" type="submit" />
       </form>
     )
   },
@@ -80,18 +86,24 @@ LoginSignupForm = React.createClass({
     return (
       <form className="login" onSubmit={this.handleLogin} >
         <h2>Log In</h2>
-        <input className="twelve columns" placeholder="Username" type="text" name="username" value={this.state.username} onChange={this.collectData} />
-        <input className="twelve columns" placeholder="Password" type="password" name="password" value={this.state.password} onChange={this.collectData} />
-        <input className="twelve columns button-primary" type="submit" />
+        <fieldset className="form-group">
+          <label for="username">Username</label>
+          <input className="form-control" placeholder="Username" type="text" name="username" value={this.state.username} onChange={this.collectData} />
+        </fieldset>
+        <fieldset className="form-group">
+          <label for="password">Password</label>
+          <input className="form-control" placeholder="Password" type="password" name="password" value={this.state.password} onChange={this.collectData} />
+        </fieldset>
+        <input className="btn btn-primary btn-block" type="submit" />
       </form>
     )
   },
 
   signupLoginForms() {
     return (
-      <div className="forms twelve columns">
-        <button name="signup" className="choose signup" onClick={this.toggleSignupLogin} >Signup</button>
-        <button name="login" className="choose login" onClick={this.toggleSignupLogin} >Log In</button>
+      <div className="forms col-md-9">
+        <button name="signup" className="btn btn-secondary choose signup" onClick={this.toggleSignupLogin} >Signup</button>
+        <button name="login" className="btn btn-secondary choose login" onClick={this.toggleSignupLogin} >Log In</button>
         {this.state.doSignup === 'signup' ? this.signupForm() : this.loginForm() }
       </div>
     )
