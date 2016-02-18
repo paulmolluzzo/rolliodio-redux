@@ -42,7 +42,6 @@ Dashboard = React.createClass({
   render() {
     return (
       <div className="dashboard">
-        <LoginSignupForm />
         <h3>Dashboard</h3>
         <NewGame />
         <h4>Active Games</h4>

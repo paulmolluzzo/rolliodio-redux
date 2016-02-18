@@ -3,6 +3,7 @@ App = React.createClass({
     return (
       <div>
         <Alerts />
+        <NavBar />
         <main>{this.props.content}</main>
       </div>
     );

@@ -45,6 +45,10 @@ everyone.route('/', {
 
 everyone.route('/login', {
   name: 'login',
+  triggersEnter(context, redirect) {
+    if (Meteor.user())
+      redirect('dashboard');
+  },
   action() {
     ReactLayout.render(App, {content: <LoginSignupForm />});
   }
