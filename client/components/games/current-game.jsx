@@ -33,18 +33,15 @@ CurrentGame = React.createClass({
   gameLayout() {
     return (
       <div>
-        <div className="currentgame">
-          <div className="game-header clearfix">
-            <div className="game-name clearfix">
-              <h3>rolliodio.com/</h3>
-              <input id="update-game-name" type="text" placeholder={this.data.game.slug} />
-            </div>
-            <div className="game-actions clearfix">
-              <a className="exit-game" href={FlowRouter.path('dashboard')}>Exit</a>
-              <input type="button" className="roll-all" value="Roll All" onClick={this.rollAll} />
-            </div>
+        <div className="row">
+          <div className="col-sm-12">
+            <input type="button" className="btn btn-primary btn-block roll-all" value="Roll All" onClick={this.rollAll} />
           </div>
-          {this.data.dice ? this.renderDice() : ''}
+        </div>
+        <div className="row">
+          <div className="list-group col-sm-12">
+            {this.data.dice ? this.renderDice() : ''}
+          </div>
         </div>
         <NewDice />
       </div>
