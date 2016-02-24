@@ -1,9 +1,3 @@
-// General Settings for ReactLayout
-
-ReactLayout.setRootProps({
-  className: "container"
-});
-
 // group permissions for specific routes
 
 let everyone = FlowRouter.group({});

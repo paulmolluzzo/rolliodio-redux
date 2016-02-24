@@ -4,7 +4,8 @@ App = React.createClass({
       <div>
         <Alerts />
         <NavBar />
-        <main>{this.props.content}</main>
+        <div className="container">{this.props.content}</div>
+        <Footer />
       </div>
     );
   }

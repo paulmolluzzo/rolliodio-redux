@@ -1,0 +1,28 @@
+footer {
+  background-color: $gray-lighter;
+  font-size: $font-size-sm;
+  margin-top: 4rem;
+  padding: 4rem 0;
+
+  ul {
+    padding: 0;
+  }
+
+  li {
+    display: inline-block;
+    padding: $list-inline-padding;
+
+    &:last-of-type {
+      float: right;
+    }
+  }
+
+  a.nav-link {
+    font-weight: 500;
+    color: $gray;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

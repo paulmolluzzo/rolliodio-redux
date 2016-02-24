@@ -19,7 +19,7 @@ NavBar = React.createClass({
                 <a className="nav-link" href={ FlowRouter.path('dashboard') }>Dashboard</a>
               </li>
               <li className="nav-item active">
-                {this.loginLogoutLink()}
+                <LoginLogoutLink />
               </li>
             </ul>
           </div>
