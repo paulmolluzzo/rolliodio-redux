@@ -1,9 +1,10 @@
 NavBar = React.createClass({
   loginLogoutLink() {
-    if (Meteor.user())
-      return (<a className="nav-link" href={ FlowRouter.path('logout') }>Log Out</a>)
+    if (Meteor.user()) {
+      return (<a className="nav-link" href={ FlowRouter.path('logout') }>Log Out</a>);
+    }
 
-    return (<a className="nav-link" href={ FlowRouter.path('login') }>Login</a>)
+    return (<a className="nav-link" href={ FlowRouter.path('login') }>Login</a>);
   },
   render() {
     return (
@@ -25,6 +26,6 @@ NavBar = React.createClass({
           </div>
         </nav>
       </header>
-    )
+    );
   }
 });

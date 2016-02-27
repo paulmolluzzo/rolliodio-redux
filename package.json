@@ -23,5 +23,15 @@
   "bugs": {
     "url": "https://github.com/paulmolluzzo/rolliodio-redux/issues"
   },
-  "homepage": "https://github.com/paulmolluzzo/rolliodio-redux"
+  "homepage": "https://github.com/paulmolluzzo/rolliodio-redux",
+  "xo": {
+    "envs": [
+      "browser",
+      "node"
+    ],
+    "rules": {
+      "no-undef" : 0
+    },
+    "space": true
+  }
 }

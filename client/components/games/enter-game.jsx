@@ -10,9 +10,9 @@ EnterGame = React.createClass({
     });
   },
 
-  enterGame(event) {
+  enterGame() {
     if (Games.findOne({slug: this.state.gameName})) {
-      FlowRouter.go('currentgame', {slug: this.state.gameName})
+      FlowRouter.go('currentgame', {slug: this.state.gameName});
     } else {
       Session.set('alert', {type: 'error', message: 'That game doesn\'t exist'});
     }

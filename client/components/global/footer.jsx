@@ -10,6 +10,6 @@ Footer = React.createClass({
           </ul>
         </div>
       </footer>
-    )
+    );
   }
-})
+});

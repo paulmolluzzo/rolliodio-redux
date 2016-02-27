@@ -5,7 +5,7 @@ LoginSignupForm = React.createClass({
   getMeteorData() {
     let data = {
       user: false
-    }
+    };
 
     data.user = Meteor.user();
 
@@ -39,10 +39,10 @@ LoginSignupForm = React.createClass({
       (error) => {
         this.state.username = '';
         this.state.password = '';
-        if (!error) {
-          console.log('Signed Up');
-        } else {
+        if (error) {
           console.log(error);
+        } else {
+          console.log('Signed Up');
         }
       }
     );
@@ -56,10 +56,10 @@ LoginSignupForm = React.createClass({
       (error) => {
         this.state.username = '';
         this.state.password = '';
-        if (!error) {
-          console.log('Logged In');
-        } else {
+        if (error) {
           console.log(error);
+        } else {
+          console.log('Logged In');
         }
       }
     );
@@ -79,7 +79,7 @@ LoginSignupForm = React.createClass({
         </fieldset>
         <input className="btn btn-primary btn-block" type="submit" />
       </form>
-    )
+    );
   },
 
   loginForm() {
@@ -96,7 +96,7 @@ LoginSignupForm = React.createClass({
         </fieldset>
         <input className="btn btn-primary btn-block" type="submit" />
       </form>
-    )
+    );
   },
 
   signupLoginForms() {
@@ -106,7 +106,7 @@ LoginSignupForm = React.createClass({
         <button name="login" className="btn btn-secondary choose login" onClick={this.toggleSignupLogin} >Log In</button>
         {this.state.doSignup === 'signup' ? this.signupForm() : this.loginForm() }
       </div>
-    )
+    );
   },
 
   signoutAction() {
@@ -115,7 +115,7 @@ LoginSignupForm = React.createClass({
       <div className="signout">
         <a href={signoutLink}>Log Out</a>
       </div>
-    )
+    );
   },
 
   render() {
