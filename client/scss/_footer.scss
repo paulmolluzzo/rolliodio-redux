@@ -10,7 +10,7 @@ footer {
 
   li {
     display: inline-block;
-    padding: $list-inline-padding;
+    padding: 0 $breadcrumb-padding-horizontal;
 
     &:last-of-type {
       float: right;
