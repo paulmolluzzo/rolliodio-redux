@@ -1,66 +1,72 @@
-.result p {
-    background: url('/dice.svg') no-repeat;
-    color: #333;
-    position: relative;
-    height: 50px;
-    width: 50px;
-    margin: 0 auto;
-    padding-top: 15px;
-    text-align: center;
-}
-p.d2,p.d18,p.d34,p.d50,p.d66,p.d83,p.d99 {
-    background-position: 0 -400px;
-    color: #fff;
-}
-p.d3,p.d19,p.d35,p.d51,p.d67,p.d84,p.d100 {
-    background-position: 0 -500px;
-}
-p.d4,p.d20,p.d36,p.d52,p.d68,p.d85 {
-    background-position: 0 -50px;
-    color: #fff;
-}
-p.d5,p.d21,p.d37,p.d53,p.d69,p.d86 {
-    background-position: 0 -600px;
-    color: #fff;
-}
-p.d6,p.d22,p.d38,p.d54,p.d71,p.d87 {}
-p.d7,p.d23,p.d39,p.d55,p.d72,p.d88 {
-    background-position: 0 -650px;
-    color: #fff;
-}
-p.d8,p.d24,p.d40,p.d56,p.d73,p.d89 {
-    background-position: 0 -250px;
-}
-p.d9,p.d25,p.d41,p.d57,p.d74,p.d90 {
-    background-position: 0 -100px;
-}
-p.d10,p.d26,p.d42,p.d58,p.d75,p.d91 {
-    background-position: 0 -150px;
-    color: #fff;
-}
-p.d11,p.d27,p.d43,p.d59,p.d76,p.d92 {
-    background-position: 0 -450px;
-    color: #fff;
-}
-p.d12,p.d28,p.d44,p.d60,p.d77,p.d93 {
-    background-position: 0 -100px;
-}
-p.d13,p.d29,p.d45,p.d61,p.d78,p.d94 {
-    background-position: 0 -550px;
-    color: #fff;
-}
-p.d14,p.d30,p.d46,p.d62,p.d79,p.d95 {
-    background-position: 0 -250px;
-}
-p.d15,p.d31,p.d47,p.d63,p.d80,p.d96 {
-    background-position: 0 -300px;
-    color: #fff;
-}
-p.d16,p.d32,p.d48,p.d64,p.d81,p.d97 {
-    background-position: 0 -350px;
-    color: #fff;
-}
-p.d17,p.d33,p.d49,p.d65,p.d82,p.d98 {
-    background-position: 0 -200px;
-    color: #fff;
+.single-die {
+
+  .results {
+      label {
+      background: url('/dice.svg') no-repeat;
+      color: #333;
+      position: relative;
+      height: 50px;
+      width: 50px;
+      margin: 0 auto;
+      padding-top: 15px;
+      text-align: center;
+    }
+
+    .d2,.d18,.d34,.d50,.d66,.d83,.d99 {
+        background-position: 0 -400px;
+        color: #fff;
+    }
+    .d3,.d19,.d35,.d51,.d67,.d84,.d100 {
+        background-position: 0 -500px;
+    }
+    .d4,.d20,.d36,.d52,.d68,.d85 {
+        background-position: 0 -50px;
+        color: #fff;
+    }
+    .d5,.d21,.d37,.d53,.d69,.d86 {
+        background-position: 0 -600px;
+        color: #fff;
+    }
+    .d6,.d22,.d38,.d54,.d71,.d87 {}
+    .d7,.d23,.d39,.d55,.d72,.d88 {
+        background-position: 0 -650px;
+        color: #fff;
+    }
+    .d8,.d24,.d40,.d56,.d73,.d89 {
+        background-position: 0 -250px;
+    }
+    .d9,.d25,.d41,.d57,.d74,.d90 {
+        background-position: 0 -100px;
+    }
+    .d10,.d26,.d42,.d58,.d75,.d91 {
+        background-position: 0 -150px;
+        color: #fff;
+    }
+    .d11,.d27,.d43,.d59,.d76,.d92 {
+        background-position: 0 -450px;
+        color: #fff;
+    }
+    .d12,.d28,.d44,.d60,.d77,.d93 {
+        background-position: 0 -100px;
+    }
+    .d13,.d29,.d45,.d61,.d78,.d94 {
+        background-position: 0 -550px;
+        color: #fff;
+    }
+    .d14,.d30,.d46,.d62,.d79,.d95 {
+        background-position: 0 -250px;
+    }
+    .d15,.d31,.d47,.d63,.d80,.d96 {
+        background-position: 0 -300px;
+        color: #fff;
+    }
+    .d16,.d32,.d48,.d64,.d81,.d97 {
+        background-position: 0 -350px;
+        color: #fff;
+    }
+    .d17,.d33,.d49,.d65,.d82,.d98 {
+        background-position: 0 -200px;
+        color: #fff;
+    }
+  }
 }
