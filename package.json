@@ -1,0 +1,27 @@
+{
+  "name": "rolliodio-redux",
+  "version": "0.1.0",
+  "description": "Roll dice with friends",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "xo": "^0.12.1"
+  },
+  "scripts": {
+    "test": "xo"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/paulmolluzzo/rolliodio-redux.git"
+  },
+  "keywords": [
+    "meteor",
+    "react"
+  ],
+  "author": "Paul Molluzzo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/paulmolluzzo/rolliodio-redux/issues"
+  },
+  "homepage": "https://github.com/paulmolluzzo/rolliodio-redux"
+}
