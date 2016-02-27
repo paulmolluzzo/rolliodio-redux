@@ -1,0 +1,72 @@
+.single-die {
+
+  .results {
+      label {
+      background: url('/dice.svg') no-repeat;
+      color: #333;
+      position: relative;
+      height: 50px;
+      width: 50px;
+      margin: 0 auto;
+      padding-top: 15px;
+      text-align: center;
+    }
+
+    .d2,.d18,.d34,.d50,.d66,.d83,.d99 {
+        background-position: 0 -400px;
+        color: #fff;
+    }
+    .d3,.d19,.d35,.d51,.d67,.d84,.d100 {
+        background-position: 0 -500px;
+    }
+    .d4,.d20,.d36,.d52,.d68,.d85 {
+        background-position: 0 -50px;
+        color: #fff;
+    }
+    .d5,.d21,.d37,.d53,.d69,.d86 {
+        background-position: 0 -600px;
+        color: #fff;
+    }
+    .d6,.d22,.d38,.d54,.d71,.d87 {}
+    .d7,.d23,.d39,.d55,.d72,.d88 {
+        background-position: 0 -650px;
+        color: #fff;
+    }
+    .d8,.d24,.d40,.d56,.d73,.d89 {
+        background-position: 0 -250px;
+    }
+    .d9,.d25,.d41,.d57,.d74,.d90 {
+        background-position: 0 -100px;
+    }
+    .d10,.d26,.d42,.d58,.d75,.d91 {
+        background-position: 0 -150px;
+        color: #fff;
+    }
+    .d11,.d27,.d43,.d59,.d76,.d92 {
+        background-position: 0 -450px;
+        color: #fff;
+    }
+    .d12,.d28,.d44,.d60,.d77,.d93 {
+        background-position: 0 -100px;
+    }
+    .d13,.d29,.d45,.d61,.d78,.d94 {
+        background-position: 0 -550px;
+        color: #fff;
+    }
+    .d14,.d30,.d46,.d62,.d79,.d95 {
+        background-position: 0 -250px;
+    }
+    .d15,.d31,.d47,.d63,.d80,.d96 {
+        background-position: 0 -300px;
+        color: #fff;
+    }
+    .d16,.d32,.d48,.d64,.d81,.d97 {
+        background-position: 0 -350px;
+        color: #fff;
+    }
+    .d17,.d33,.d49,.d65,.d82,.d98 {
+        background-position: 0 -200px;
+        color: #fff;
+    }
+  }
+}

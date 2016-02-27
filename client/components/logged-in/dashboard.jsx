@@ -22,9 +22,19 @@ Dashboard = React.createClass({
   listGames() {
     return this.data.myGames.map((game, index) => {
       return (
-        <li>
-          <a href={FlowRouter.path('currentgame', {slug: game.slug})} >{game.slug}</a>
-        </li>
+        <div className="col-lg-4 col-md-6 col-sm-12">
+          <div className="card">
+            <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 className="card-header text-xs-center">{game.slug}</h4>
+            <div className="card-block">
+              <p className="card-text">Players: ###</p>
+              <p className="card-text">Dice: ###</p>
+              <a href={FlowRouter.path('currentgame', {slug: game.slug})} className="btn btn-success btn-block">Enter Game</a>
+            </div>
+          </div>
+        </div>
       )
     });
   },
@@ -32,11 +42,12 @@ Dashboard = React.createClass({
   render() {
     return (
       <div className="dashboard">
-        <LoginSignupForm />
+        <h3>Dashboard</h3>
         <NewGame />
-        <ul>
+        <h4>Active Games</h4>
+        <section className="row">
           {this.data.myGames ? this.listGames() : ''}
-        </ul>
+        </section>
       </div>
     );
   }

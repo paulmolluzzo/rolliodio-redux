@@ -1,9 +1,3 @@
-// General Settings for ReactLayout
-
-ReactLayout.setRootProps({
-  className: "page-wrap clearfix"
-});
-
 // group permissions for specific routes
 
 let everyone = FlowRouter.group({});
@@ -45,6 +39,10 @@ everyone.route('/', {
 
 everyone.route('/login', {
   name: 'login',
+  triggersEnter(context, redirect) {
+    if (Meteor.user())
+      redirect('dashboard');
+  },
   action() {
     ReactLayout.render(App, {content: <LoginSignupForm />});
   }

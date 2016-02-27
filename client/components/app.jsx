@@ -3,7 +3,9 @@ App = React.createClass({
     return (
       <div>
         <Alerts />
-        <main>{this.props.content}</main>
+        <NavBar />
+        <div className="container">{this.props.content}</div>
+        <Footer />
       </div>
     );
   }
