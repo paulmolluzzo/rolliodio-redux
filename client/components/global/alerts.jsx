@@ -5,12 +5,12 @@ Alerts = React.createClass({
   getMeteorData() {
     return {
       alert: Session.get('alert')
-    }
+    };
   },
 
   clearAlerts() {
     setTimeout(() => {
-      Session.set('alert', null)
+      Session.set('alert', null);
     }, 3500);
   },
 
@@ -20,7 +20,7 @@ Alerts = React.createClass({
       <div className={this.data.alert.type} >
         <h3>{this.data.alert.message}</h3>
       </div>
-    )
+    );
   },
 
   render() {
@@ -28,6 +28,6 @@ Alerts = React.createClass({
       <div className="alert">
         { this.data.alert ? this.alertContent() : ''}
       </div>
-    )
+    );
   }
 });

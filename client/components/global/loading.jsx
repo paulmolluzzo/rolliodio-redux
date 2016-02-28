@@ -4,6 +4,6 @@ Loading = React.createClass({
       <div className="loading">
         <img src="/loading.gif" alt="Loading..."/>
       </div>
-    )
+    );
   }
 });

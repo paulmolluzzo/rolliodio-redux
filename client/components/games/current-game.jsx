@@ -22,8 +22,9 @@ CurrentGame = React.createClass({
 
       // check for dice being available after the game is fetched from DB
       // and add all those dice to the data
-      if (gameDice && gameDice.ready())
+      if (gameDice && gameDice.ready()) {
         data.dice = Dice.find({game: data.game._id}).fetch();
+      }
     }
 
     return data;
@@ -57,9 +58,10 @@ CurrentGame = React.createClass({
 
   // rolling all the dice in the game
   rollAll() {
-    Meteor.call('rollAllDice', this.data.game._id, (e, r) => {
-      if (e)
-        Session.set('alert', {'type': 'error', 'message': e.reason});
+    Meteor.call('rollAllDice', this.data.game._id, (e) => {
+      if (e) {
+        Session.set('alert', {type: 'error', message: e.reason});
+      }
     });
   },
 

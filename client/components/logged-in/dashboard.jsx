@@ -9,8 +9,9 @@ Dashboard = React.createClass({
     let myGames = Meteor.subscribe('mygames');
 
     // when the subscription is ready
-    if (myGames.ready())
+    if (myGames.ready()) {
       data.myGames = Games.find().fetch();
+    }
 
     return data;
   },
@@ -20,7 +21,7 @@ Dashboard = React.createClass({
   },
 
   listGames() {
-    return this.data.myGames.map((game, index) => {
+    return this.data.myGames.map((game) => {
       return (
         <div className="col-lg-4 col-md-6 col-sm-12">
           <div className="card">
@@ -35,7 +36,7 @@ Dashboard = React.createClass({
             </div>
           </div>
         </div>
-      )
+      );
     });
   },
 

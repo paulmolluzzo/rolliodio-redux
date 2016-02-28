@@ -4,14 +4,15 @@ let everyone = FlowRouter.group({});
 
 let loggedInUsers = FlowRouter.group({
   name: 'loggedInUsers',
-  triggersEnter: [(context, redirect) => {
+  triggersEnter: [() => {
     if (!Meteor.loggingIn() && !Meteor.user()) {
-      let route = FlowRouter.current()
+      let route = FlowRouter.current();
       if (route.route.name !== 'login') {
-        if (Meteor.isClient)
+        if (Meteor.isClient) {
           Session.set('redirectAfterLogin', route.path);
+        }
       }
-      return FlowRouter.go('login')
+      return FlowRouter.go('login');
     }
   }]
 });
@@ -24,8 +25,9 @@ Accounts.onLogin(() => {
 
     let redirect = Session.get('redirectAfterLogin');
 
-    if (redirect !== null && redirect !== '/login')
+    if (redirect !== null && redirect !== '/login') {
       return FlowRouter.go(redirect);
+    }
   }
 });
 
@@ -39,9 +41,10 @@ everyone.route('/', {
 
 everyone.route('/login', {
   name: 'login',
-  triggersEnter(context, redirect) {
-    if (Meteor.user())
+  triggersEnter() {
+    if (Meteor.user()) {
       redirect('dashboard');
+    }
   },
   action() {
     ReactLayout.render(App, {content: <LoginSignupForm />});
@@ -62,7 +65,7 @@ everyone.route('/logout', {
 
 loggedInUsers.route('/dashboard', {
   name: 'dashboard',
-  action(params) {
+  action() {
     ReactLayout.render(App, {content: <Dashboard />});
   }
 });
@@ -77,7 +80,7 @@ loggedInUsers.route('/game/:slug', {
 // Not Found
 
 FlowRouter.notFound = {
-    action() {
-      ReactLayout.render(App, {content: <NotFound />});
-    }
+  action() {
+    ReactLayout.render(App, {content: <NotFound />});
+  }
 };
